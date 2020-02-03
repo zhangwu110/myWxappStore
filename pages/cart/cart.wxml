@@ -1,0 +1,79 @@
+<!-- pages/cart/cart.wxml -->
+<!-- 收货地址容器 -->
+<view class="revice_address_row">
+    <!-- 当收货地址 不存在时 按钮显示 -->
+    <view class="address_btn" wx:if="{{!address}}">
+        <button bindtap="handleChoseAddress" type="primary" plain>选择收获地址</button>
+    </view>
+    <!-- 当收货地址存在时详细信息显示 -->
+    <view class="user_info_row" wx:else>
+        <view class="user_info">
+            <view>收货人:张三</view>
+            <view>{{address.address}}</view>
+            <view>{{address.name}}</view>
+        </view>
+        <view class="phone">779054642</view>
+    </view>
+</view>
+<!-- 商品内容区域 -->
+<view class="cart_content">
+    <view class="cart_title">购物车</view>
+    <view class="main">
+       <block wx:if="{{cart.length !== 0}}">
+            <view class="cart_item"
+        wx:for="{{cart}}"
+        wx:for-index="index1"
+        wx:for-item="item1"
+        wx:key="goods_id"
+        >
+            <!-- 复选框结构 -->
+            <view class="cart_chk_wrap">
+                <checkbox-group data-id="{{item1.goods_id}}" bindchange="handleItemChange">
+                    <checkbox checked="{{item1.checked}}"></checkbox>
+                </checkbox-group>
+            </view>
+            <!-- 商品图片 -->
+            <navigator class="cart_img_wrap">
+                <image class="" src="{{item1.goods_big_logo}}" mode="widthFix" lazy-load="false" binderror="" bindload=""></image>
+            </navigator>
+            <!-- 商品信息 -->
+            <view class="cart_info_wrap">
+                <view class="goods_name">{{item1.goods_name}}</view>
+                <view class="goods_price_wrap">
+                    <view class="goods_price">￥{{item1.goods_price}}</view>
+                    <view class="cart_num_tool">
+                        <view class="num_edit" bindtap = "handleItemNumEdit" data-operation="{{-1}}" data-id="{{item1.goods_id}}">-</view>
+                        <view class="goods_num">{{item1.num}}</view>
+                        <view class="num_edit" bindtap = "handleItemNumEdit" data-operation="{{1}}" data-id="{{item1.goods_id}}">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+       </block>
+       <block wx:else>
+           <image class="" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1580216936099&di=c6ad13ed356531eb75b68ef0759f2ca5&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fe1b1467beea0a9c7d6a56b32bac6d7e5dcd914f7c3e6-YTwUd6_fw658" mode="widthFix" lazy-load="false" binderror="" bindload="">
+               
+           </image>
+       </block>
+    </view>
+</view>
+<!-- 底部工具栏 -->
+<view class="footer_tool">
+    <!-- 全选 -->
+    <view class="all_chk_wrap">
+        <checkbox-group bindchange="handleItemAllCheck">
+            <checkbox checked="{{allChecked}}">全选</checkbox>
+        </checkbox-group>
+    </view>
+    <!-- 总价格 --> 
+    <view class="total_price_wrap">
+        <view class="total_price">
+            合计
+            <text class="total_price_text">￥{{totalPrice}}</text>
+        </view>
+        <view>包含运费</view>
+    </view>
+    <view class="order_pay_wrap">
+     结算({{totalNum}})
+    </view>
+</view>

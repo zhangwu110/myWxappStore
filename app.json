@@ -1,0 +1,64 @@
+{ 
+  "pages": [         
+    "pages/index/index",    
+    "pages/category/category",
+    "pages/goods_list/goods_list", 
+    "pages/goods_detail/goods_detail", 
+    "pages/cart/cart",
+    "pages/collect/collect",
+    "pages/order/order",
+    "pages/search/search",  
+    "pages/user/user",  
+    "pages/feedback/feedback",
+    "pages/login/login",    
+    "pages/auth/auth",    
+    "pages/pay/pay"   
+  ], 
+  "permission": {   
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示" 
+    }
+  },
+  "window": {  
+    "backgroundTextStyle": "light", 
+    "navigationBarBackgroundColor": "#eb4450",  
+    "navigationBarTitleText": "黑马优购",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": { 
+    "color": "#999",
+    "selectedColor": "#ff2d4a",
+    "backgroundColor": "#fafafa",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./icon/房子.png",
+        "selectedIconPath": "./icon/房子1.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "./icon/放大镜.png",
+        "selectedIconPath": "./icon/放大镜1.png"
+      },
+      {
+        "pagePath":  "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "./icon/购物车.png",
+        "selectedIconPath": "./icon/购物车1.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "我的",
+        "iconPath": "./icon/联系人.png",
+        "selectedIconPath": "./icon/联系人1.png"
+      }
+    ]
+  },
+  
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
